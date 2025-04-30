@@ -3,6 +3,7 @@ import time, json
 from datetime import datetime
 import logging
 import sys
+from pathlib import Path
 
 sys.path.append(".")
 from ingestion.kafka_ingestion import get_arrivals, get_disruptions_for_line
@@ -12,8 +13,47 @@ topic2 = "disruption"
 
 line_json = None
 path = "line_stop.json"
-with open(path, "r") as f:
-    line_json = json.load(f)
+if not Path(path).exists():
+    print(f"File {path} exists.")
+    try:
+        with open(path, "r") as f:
+            line_json = json.load(f)
+    except Exception as e:
+          line_json = {
+                "bus": {
+                    "24": [
+                        "490000036S", 
+                        "490000089A",  
+                        "490000135A"   
+                        ]
+                },
+                "tube": {
+                    "victoria": [
+                    "940GZZLUBLR",  
+                    "940GZZLUBXN",  
+                    "940GZZLUEUS"   
+                    ]
+                }
+                }
+
+else:
+    line_json = {
+                "bus": {
+                    "24": [
+                        "490000036S", 
+                        "490000089A",  
+                        "490000135A"   
+                        ]
+                },
+                "tube": {
+                    "victoria": [
+                    "940GZZLUBLR",  
+                    "940GZZLUBXN",  
+                    "940GZZLUEUS"   
+                    ]
+                }
+                }
+
 line_ids = []
 naptan_idx = []
 for key, values in line_json.items():

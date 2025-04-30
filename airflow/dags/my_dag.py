@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from datetime import timezone
+import pytz
 import json, os, pathlib
 import hashlib
 from airflow import DAG
@@ -56,7 +57,7 @@ def save_new_json(timestamp, data, category: str):
             return None
     except:
         pass
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S_%f")[:21]
+    timestamp = datetime.now(pytz.timezone("Europe/London")).strftime("%Y%m%d_%H%M%S_%f")[:21]
     file_path = f"snapshot_{timestamp}.json"
     with open(file_path, "w") as f:
         json.dump(data, f, indent=2)
@@ -252,6 +253,11 @@ def load_data(**kwargs):
         ins = cursor.execute(stmt)
         rows = ins.fetchall()
         if rows:
+            return rows[0][0]
+        else:
+            stmt = f"INSERT INTO service_days (name) VALUES ('{day}');"
+            ins = cursor.execute(stmt)
+            rows = ins.fetchall()
             return rows[0][0]
         return None
     
