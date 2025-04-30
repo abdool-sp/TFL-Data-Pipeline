@@ -1,0 +1,177 @@
+[2025-04-17T20:00:34.355+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T20:00:34.389+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_OPEN_DATA_DAG_V4.api_call_static_data manual__2025-04-17T19:17:47.586575+00:00 [queued]>
+[2025-04-17T20:00:34.401+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_OPEN_DATA_DAG_V4.api_call_static_data manual__2025-04-17T19:17:47.586575+00:00 [queued]>
+[2025-04-17T20:00:34.402+0000] {taskinstance.py:2867} INFO - Starting attempt 9 of 14
+[2025-04-17T20:00:34.424+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): api_call_static_data> on 2025-04-17 19:17:47.586575+00:00
+[2025-04-17T20:00:34.434+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_OPEN_DATA_DAG_V4', 'api_call_static_data', 'manual__2025-04-17T19:17:47.586575+00:00', '--job-id', '205', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpp842b9o7']
+[2025-04-17T20:00:34.441+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=339) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-17T20:00:34.441+0000] {standard_task_runner.py:105} INFO - Job 205: Subtask api_call_static_data
+[2025-04-17T20:00:34.443+0000] {standard_task_runner.py:72} INFO - Started process 340 to run task
+[2025-04-17T20:00:34.524+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_OPEN_DATA_DAG_V4.api_call_static_data manual__2025-04-17T19:17:47.586575+00:00 [running]> on host 197005dfdcea
+[2025-04-17T20:00:34.623+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_OPEN_DATA_DAG_V4' AIRFLOW_CTX_TASK_ID='api_call_static_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T19:17:47.586575+00:00' AIRFLOW_CTX_TRY_NUMBER='9' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-17T19:17:47.586575+00:00'
+[2025-04-17T20:00:34.627+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-17T20:00:35.244+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:35.247+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:35.795+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482ca3ea20>
+[2025-04-17T20:00:35.843+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:35.845+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200035.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200035.json at timestamp 20250417_200035
+[2025-04-17T20:00:37.357+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:37.360+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:37.468+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482bf97620>
+[2025-04-17T20:00:37.534+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:37.535+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:37.537+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200037.json to s3://tfl/data/raw/timetables/snapshot_20250417_200037.json at timestamp 20250417_200037
+[2025-04-17T20:00:39.080+0000] {logging_mixin.py:190} INFO - Error fetching metadata for stop 490000254Y: 404 Client Error: Not Found for url: https://api.tfl.gov.uk/StopPoint/490000254Y?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:39.096+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:39.100+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:39.199+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482c980b60>
+[2025-04-17T20:00:39.237+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:39.239+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:39.240+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200039.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200039.json at timestamp 20250417_200039
+[2025-04-17T20:00:39.927+0000] {logging_mixin.py:190} INFO - Error fetching data  400 Client Error: Bad Request for url: https://api.tfl.gov.uk/Line/24/Timetable/490000254Y?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:39.941+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:39.944+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:40.063+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482c93bbf0>
+[2025-04-17T20:00:40.097+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:40.099+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:40.100+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200040.json to s3://tfl/data/raw/timetables/snapshot_20250417_200040.json at timestamp 20250417_200040
+[2025-04-17T20:00:41.435+0000] {logging_mixin.py:190} INFO - Error fetching metadata for stop 490000091A: 404 Client Error: Not Found for url: https://api.tfl.gov.uk/StopPoint/490000091A?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:41.453+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:41.455+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:41.569+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482c93bbf0>
+[2025-04-17T20:00:41.609+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:41.611+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:41.613+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200041.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200041.json at timestamp 20250417_200041
+[2025-04-17T20:00:42.456+0000] {logging_mixin.py:190} INFO - Error fetching data  400 Client Error: Bad Request for url: https://api.tfl.gov.uk/Line/24/Timetable/490000091A?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:42.467+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:42.469+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:42.571+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482640bf50>
+[2025-04-17T20:00:42.612+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:42.614+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:42.616+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200042.json to s3://tfl/data/raw/timetables/snapshot_20250417_200042.json at timestamp 20250417_200042
+[2025-04-17T20:00:43.215+0000] {logging_mixin.py:190} INFO - Error fetching metadata for stop 490000176T: 404 Client Error: Not Found for url: https://api.tfl.gov.uk/StopPoint/490000176T?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:43.226+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:43.229+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:43.341+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4825e2bd70>
+[2025-04-17T20:00:43.374+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:43.376+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:43.377+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200043.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200043.json at timestamp 20250417_200043
+[2025-04-17T20:00:45.426+0000] {logging_mixin.py:190} INFO - Error fetching data  400 Client Error: Bad Request for url: https://api.tfl.gov.uk/Line/102/Timetable/490000176T?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:45.435+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:45.438+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:45.535+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4825b0bc20>
+[2025-04-17T20:00:45.574+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:45.576+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:45.577+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200045.json to s3://tfl/data/raw/timetables/snapshot_20250417_200045.json at timestamp 20250417_200045
+[2025-04-17T20:00:46.172+0000] {logging_mixin.py:190} INFO - Error fetching metadata for stop 490005127E: 404 Client Error: Not Found for url: https://api.tfl.gov.uk/StopPoint/490005127E?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:46.181+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:46.183+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:46.293+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4825b0bbf0>
+[2025-04-17T20:00:46.334+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:46.336+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:46.338+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200046.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200046.json at timestamp 20250417_200046
+[2025-04-17T20:00:46.963+0000] {logging_mixin.py:190} INFO - Error fetching data  400 Client Error: Bad Request for url: https://api.tfl.gov.uk/Line/102/Timetable/490005127E?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:46.977+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:46.979+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:47.086+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f48254dffb0>
+[2025-04-17T20:00:47.120+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:47.121+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:47.123+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200047.json to s3://tfl/data/raw/timetables/snapshot_20250417_200047.json at timestamp 20250417_200047
+[2025-04-17T20:00:47.800+0000] {logging_mixin.py:190} INFO - Error fetching metadata for stop 490000256Z: 404 Client Error: Not Found for url: https://api.tfl.gov.uk/StopPoint/490000256Z?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:47.818+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:47.820+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:47.940+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4824ac7a40>
+[2025-04-17T20:00:47.995+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:47.997+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:47.999+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200047.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200047.json at timestamp 20250417_200047
+[2025-04-17T20:00:48.604+0000] {logging_mixin.py:190} INFO - Error fetching data  400 Client Error: Bad Request for url: https://api.tfl.gov.uk/Line/102/Timetable/490000256Z?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:00:48.620+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:48.622+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:48.721+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482417bda0>
+[2025-04-17T20:00:48.756+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:48.757+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:48.759+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200048.json to s3://tfl/data/raw/timetables/snapshot_20250417_200048.json at timestamp 20250417_200048
+[2025-04-17T20:00:51.274+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:51.276+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:51.391+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f48241b85c0>
+[2025-04-17T20:00:51.428+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:51.430+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:51.431+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200051.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200051.json at timestamp 20250417_200051
+[2025-04-17T20:00:52.083+0000] {logging_mixin.py:190} INFO - Error fetching data  'timetable'
+[2025-04-17T20:00:52.092+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:52.094+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:52.219+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4824895220>
+[2025-04-17T20:00:52.256+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:52.257+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:52.258+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200052.json to s3://tfl/data/raw/timetables/snapshot_20250417_200052.json at timestamp 20250417_200052
+[2025-04-17T20:00:52.919+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:52.922+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:53.037+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4820f5bad0>
+[2025-04-17T20:00:53.069+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:53.071+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:53.072+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200053.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200053.json at timestamp 20250417_200053
+[2025-04-17T20:00:54.196+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:54.199+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:54.305+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482141b350>
+[2025-04-17T20:00:54.402+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:54.404+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:54.406+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200054.json to s3://tfl/data/raw/timetables/snapshot_20250417_200054.json at timestamp 20250417_200054
+[2025-04-17T20:00:55.201+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:55.203+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:55.843+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f48241780e0>
+[2025-04-17T20:00:55.878+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:55.880+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:55.882+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200055.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200055.json at timestamp 20250417_200055
+[2025-04-17T20:00:56.529+0000] {logging_mixin.py:190} INFO - Error fetching data  'timetable'
+[2025-04-17T20:00:56.544+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:56.548+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:56.645+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4825b43590>
+[2025-04-17T20:00:56.695+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:56.698+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:56.700+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200056.json to s3://tfl/data/raw/timetables/snapshot_20250417_200056.json at timestamp 20250417_200056
+[2025-04-17T20:00:57.321+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:57.323+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:57.442+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482b0e9f40>
+[2025-04-17T20:00:57.475+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:57.477+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:57.478+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200057.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200057.json at timestamp 20250417_200057
+[2025-04-17T20:00:58.129+0000] {logging_mixin.py:190} INFO - Error fetching data  'timetable'
+[2025-04-17T20:00:58.143+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:58.145+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:58.259+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482ad7b2f0>
+[2025-04-17T20:00:58.296+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:58.297+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:58.299+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200058.json to s3://tfl/data/raw/timetables/snapshot_20250417_200058.json at timestamp 20250417_200058
+[2025-04-17T20:00:58.962+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:58.965+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:59.067+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482b68f350>
+[2025-04-17T20:00:59.104+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:59.106+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:59.107+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200059.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200059.json at timestamp 20250417_200059
+[2025-04-17T20:00:59.787+0000] {logging_mixin.py:190} INFO - Error fetching data  'timetable'
+[2025-04-17T20:00:59.797+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:00:59.799+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:00:59.885+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4825e2f800>
+[2025-04-17T20:00:59.922+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:59.923+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:00:59.924+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200059.json to s3://tfl/data/raw/timetables/snapshot_20250417_200059.json at timestamp 20250417_200059
+[2025-04-17T20:01:00.583+0000] {logging_mixin.py:190} INFO - Error fetching metadata for stop 940GZZLUWPK: 404 Client Error: Not Found for url: https://api.tfl.gov.uk/StopPoint/940GZZLUWPK?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:01:00.593+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:01:00.595+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:01:00.731+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4824896c30>
+[2025-04-17T20:01:00.766+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:01:00.767+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:01:00.768+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200100.json to s3://tfl/data/raw/stop_points/snapshot_20250417_200100.json at timestamp 20250417_200100
+[2025-04-17T20:01:01.323+0000] {logging_mixin.py:190} INFO - Error fetching data  400 Client Error: Bad Request for url: https://api.tfl.gov.uk/Line/jubilee/Timetable/940GZZLUWPK?app_key=7d28b460f14e44c48e59a47afc904642
+[2025-04-17T20:01:01.332+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-17T20:01:01.335+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-17T20:01:01.433+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482145a750>
+[2025-04-17T20:01:01.470+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:01:01.471+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-17T20:01:01.473+0000] {my_dag.py:45} INFO - Uploaded snapshot_20250417_200101.json to s3://tfl/data/raw/timetables/snapshot_20250417_200101.json at timestamp 20250417_200101
+[2025-04-17T20:01:01.475+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-17T20:01:01.486+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-17T20:01:01.487+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=TFL_OPEN_DATA_DAG_V4, task_id=api_call_static_data, run_id=manual__2025-04-17T19:17:47.586575+00:00, execution_date=20250417T191747, start_date=20250417T200034, end_date=20250417T200101
+[2025-04-17T20:01:01.561+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-17T20:01:01.585+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-17T20:01:01.592+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

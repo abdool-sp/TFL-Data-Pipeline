@@ -1,0 +1,112 @@
+[2025-04-23T17:46:46.724+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-23T17:46:46.737+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG.load_data manual__2025-04-23T17:35:05.998350+00:00 [queued]>
+[2025-04-23T17:46:46.744+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG.load_data manual__2025-04-23T17:35:05.998350+00:00 [queued]>
+[2025-04-23T17:46:46.745+0000] {taskinstance.py:2867} INFO - Starting attempt 7 of 12
+[2025-04-23T17:46:46.754+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_data> on 2025-04-23 17:35:05.998350+00:00
+[2025-04-23T17:46:46.760+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG', 'load_data', 'manual__2025-04-23T17:35:05.998350+00:00', '--job-id', '331', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpc6dml_7b']
+[2025-04-23T17:46:46.762+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=610) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-23T17:46:46.763+0000] {standard_task_runner.py:105} INFO - Job 331: Subtask load_data
+[2025-04-23T17:46:46.763+0000] {standard_task_runner.py:72} INFO - Started process 613 to run task
+[2025-04-23T17:46:46.808+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG.load_data manual__2025-04-23T17:35:05.998350+00:00 [running]> on host 605a3e254bf1
+[2025-04-23T17:46:46.856+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-23T17:35:05.998350+00:00' AIRFLOW_CTX_TRY_NUMBER='7' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-23T17:35:05.998350+00:00'
+[2025-04-23T17:46:46.858+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-23T17:46:46.870+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-23T17:46:46.872+0000] {connection.py:424} INFO - Snowflake Connector for Python Version: 3.13.2, Python Version: 3.12.9, Platform: Linux-6.10.0-linuxkit-x86_64-with-glibc2.36
+[2025-04-23T17:46:46.873+0000] {connection.py:1213} INFO - Connecting to GLOBAL Snowflake domain
+[2025-04-23T17:46:46.874+0000] {connection.py:1295} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-04-23T17:46:48.409+0000] {logging_mixin.py:190} INFO - snowflake conn:  <snowflake.connector.connection.SnowflakeConnection object at 0x7f8a1c4fae10>
+[2025-04-23T17:46:48.426+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-23T17:46:48.427+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-23T17:46:48.491+0000] {logging_mixin.py:190} INFO - The sp key is:  data/raw/stop_points/snapshot_20250423_173828_74633.json
+[2025-04-23T17:46:48.494+0000] {logging_mixin.py:190} INFO - The data is:  {'$type': 'Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities', 'naptanId': '490000036S', 'indicator': 'Stop S', 'stopLetter': 'S', 'modes': ['bus'], 'icsCode': '1000036', 'smsCode': '55724', 'stopType': 'NaptanPublicBusCoachTram', 'lines': [{'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': '134', 'name': '134', 'uri': '/Line/134', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': '24', 'name': '24', 'uri': '/Line/24', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': '27', 'name': '27', 'uri': '/Line/27', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': '29', 'name': '29', 'uri': '/Line/29', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': 'n20', 'name': 'N20', 'uri': '/Line/n20', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': 'n253', 'name': 'N253', 'uri': '/Line/n253', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': 'n27', 'name': 'N27', 'uri': '/Line/n27', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': 'n279', 'name': 'N279', 'uri': '/Line/n279', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': 'n29', 'name': 'N29', 'uri': '/Line/n29', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}, {'$type': 'Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities', 'id': 'n5', 'name': 'N5', 'uri': '/Line/n5', 'type': 'Line', 'crowding': {'$type': 'Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities'}, 'routeType': 'Unknown', 'status': 'Unknown'}], 'lineGroup': [{'$type': 'Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities', 'naptanIdReference': '490000036S', 'lineIdentifier': ['134', '24', '27', '29', 'n20', 'n253', 'n27', 'n279', 'n29', 'n5']}], 'lineModeGroups': [{'$type': 'Tfl.Api.Presentation.Entities.LineModeGroup, Tfl.Api.Presentation.Entities', 'modeName': 'bus', 'lineIdentifier': ['134', '24', '27', '29', 'n20', 'n253', 'n27', 'n279', 'n29', 'n5']}], 'status': True, 'id': '490000036S', 'commonName': 'Camden Town Station', 'placeType': 'StopPoint', 'additionalProperties': [{'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Direction', 'key': 'CompassPoint', 'sourceSystemKey': 'Naptan490', 'value': 'W'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Direction', 'key': 'Towards', 'sourceSystemKey': 'CountDown', 'value': 'Great Portland St Or Tottenham Court Road'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Lifts', 'sourceSystemKey': 'StaticObjects', 'value': '0'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Address', 'key': 'PhoneNo', 'sourceSystemKey': 'StaticObjects', 'value': '0845 330 9880'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Waiting Room', 'sourceSystemKey': 'StaticObjects', 'value': 'no'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Ticket Halls', 'sourceSystemKey': 'StaticObjects', 'value': '1'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Address', 'key': 'Address', 'sourceSystemKey': 'StaticObjects', 'value': 'Camden Town Station,London Underground Ltd.,Camden High St,London,NW1 8NH'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Help Points', 'sourceSystemKey': 'StaticObjects', 'value': '0 on platforms, 0 in ticket halls, 0 elsewhere'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Photo Booths', 'sourceSystemKey': 'StaticObjects', 'value': '0'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Bridge', 'sourceSystemKey': 'StaticObjects', 'value': 'no'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Car park', 'sourceSystemKey': 'StaticObjects', 'value': 'no'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Gates', 'sourceSystemKey': 'StaticObjects', 'value': '6'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Payphones', 'sourceSystemKey': 'StaticObjects', 'value': '0'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'WiFi', 'sourceSystemKey': 'StaticObjects', 'value': 'yes'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Cash Machines', 'sourceSystemKey': 'StaticObjects', 'value': '0'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Escalators', 'sourceSystemKey': 'StaticObjects', 'value': '2'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Geo', 'key': 'Zone', 'sourceSystemKey': 'StaticObjects', 'value': '2'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Other Facilities', 'sourceSystemKey': 'StaticObjects', 'value': 'electronic whiteboards in ticket hall, post office style queuing for tickets, routeways platform to ticket hall.'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'Facility', 'key': 'Toilets', 'sourceSystemKey': 'StaticObjects', 'value': 'no'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'BikePoints_456'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'BikePoints_457'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'BikePoints_462'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'BikePoints_535'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'BikePoints_545'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'BikePoints_572'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'BikePoints_604'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'BikePoints_713'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'TaxiRank_5300'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'TaxiRank_5772'}, {'$type': 'Tfl.Api.Presentation.Entities.AdditionalProperties, Tfl.Api.Presentation.Entities', 'category': 'NearestPlaces', 'key': 'SourceSystemPlaceId', 'sourceSystemKey': 'StaticObjects', 'value': 'TaxiRank_4312'}], 'children': [], 'lat': 51.5398, 'lon': -0.14135}
+[2025-04-23T17:46:48.496+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_dag.py", line 221, in load_data
+    f"'{data["stop_point_id"]}', '{data["naptan_id"]}', '{data["common_name"]}', {data["lat"]},{data["lon"]},{array_construct(data["modes"])}, '{data["indicator"]}', '{data["stop_type"]}'"
+        ~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'stop_point_id'
+[2025-04-23T17:46:48.509+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=TFL_DATA_DAG, task_id=load_data, run_id=manual__2025-04-23T17:35:05.998350+00:00, execution_date=20250423T173505, start_date=20250423T174646, end_date=20250423T174648
+[2025-04-23T17:46:48.531+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-23T17:46:48.532+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 331 for task load_data ('stop_point_id'; 613)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_dag.py", line 221, in load_data
+    f"'{data["stop_point_id"]}', '{data["naptan_id"]}', '{data["common_name"]}', {data["lat"]},{data["lon"]},{array_construct(data["modes"])}, '{data["indicator"]}', '{data["stop_type"]}'"
+        ~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'stop_point_id'
+[2025-04-23T17:46:48.545+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-23T17:46:48.556+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-23T17:46:48.559+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

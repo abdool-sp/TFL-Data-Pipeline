@@ -1,0 +1,303 @@
+[2025-04-21T00:52:58.293+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-21T00:52:58.317+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG.api_call_static_data manual__2025-04-21T00:52:56.840155+00:00 [queued]>
+[2025-04-21T00:52:58.329+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG.api_call_static_data manual__2025-04-21T00:52:56.840155+00:00 [queued]>
+[2025-04-21T00:52:58.330+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-04-21T00:52:58.350+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): api_call_static_data> on 2025-04-21 00:52:56.840155+00:00
+[2025-04-21T00:52:58.358+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=32042) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-21T00:52:58.360+0000] {standard_task_runner.py:72} INFO - Started process 32043 to run task
+[2025-04-21T00:52:58.359+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG', 'api_call_static_data', 'manual__2025-04-21T00:52:56.840155+00:00', '--job-id', '245', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp6iuljw8y']
+[2025-04-21T00:52:58.362+0000] {standard_task_runner.py:105} INFO - Job 245: Subtask api_call_static_data
+[2025-04-21T00:52:58.436+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG.api_call_static_data manual__2025-04-21T00:52:56.840155+00:00 [running]> on host 197005dfdcea
+[2025-04-21T00:52:58.549+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG' AIRFLOW_CTX_TASK_ID='api_call_static_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-21T00:52:56.840155+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-21T00:52:56.840155+00:00'
+[2025-04-21T00:52:58.552+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-21T00:53:01.922+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:53:01.926+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:53:02.456+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482ca6b980>
+[2025-04-21T00:53:02.491+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:53:02.508+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/stop_points/snapshot_20250421_005302_47609.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "d2984a03ecb2cfb22628c91356a6b968"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: NSLqrg==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F3A2C0631AF\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:53:02 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "d2984a03ecb2cfb22628c91356a6b968"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: NSLqrg==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F3A2C0631AF\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:53:02 GMT\r\n\r\n'
+[2025-04-21T00:53:32.763+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:53:32.765+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:53:32.766+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005302_47609.json to s3://tfl/data/raw/stop_points/snapshot_20250421_005302_47609.json at timestamp 20250421_005302_47609
+[2025-04-21T00:53:34.368+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:53:34.371+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:53:34.752+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482ca13b00>
+[2025-04-21T00:53:34.800+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:53:34.801+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:53:34.827+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/timetables/snapshot_20250421_005334_77273.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "c0ea4b9997d922dac012f6fee955a245"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: Reeicw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F41B1C3D08A\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:53:34 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "c0ea4b9997d922dac012f6fee955a245"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: Reeicw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F41B1C3D08A\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:53:34 GMT\r\n\r\n'
+[2025-04-21T00:54:05.080+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:54:05.083+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:54:05.085+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005334_77273.json to s3://tfl/data/raw/timetables/snapshot_20250421_005334_77273.json at timestamp 20250421_005334_77273
+[2025-04-21T00:54:07.771+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:54:07.775+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:54:07.904+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482b670080>
+[2025-04-21T00:54:07.961+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:54:07.964+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:54:07.985+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/stop_points/snapshot_20250421_005407_94229.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "39e1a5cadce3e3f52cffdf8c880722bd"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: r9+Qpw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F496AA4F634\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:54:07 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "39e1a5cadce3e3f52cffdf8c880722bd"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: r9+Qpw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F496AA4F634\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:54:07 GMT\r\n\r\n'
+[2025-04-21T00:54:38.235+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:54:38.237+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:54:38.238+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005407_94229.json to s3://tfl/data/raw/stop_points/snapshot_20250421_005407_94229.json at timestamp 20250421_005407_94229
+[2025-04-21T00:54:39.986+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:54:39.987+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:54:40.080+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482ad77290>
+[2025-04-21T00:54:40.134+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:54:40.135+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:54:40.171+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/timetables/snapshot_20250421_005440_10516.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "8702c1d0bc18ee03c6c8030f4845195d"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: UywJrg==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F50E8114EC7\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:54:40 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "8702c1d0bc18ee03c6c8030f4845195d"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: UywJrg==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F50E8114EC7\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:54:40 GMT\r\n\r\n'
+[2025-04-21T00:55:10.424+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:55:10.427+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:55:10.429+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005440_10516.json to s3://tfl/data/raw/timetables/snapshot_20250421_005440_10516.json at timestamp 20250421_005440_10516
+[2025-04-21T00:55:13.531+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:55:13.534+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:55:13.648+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f48268c7590>
+[2025-04-21T00:55:13.686+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:55:13.689+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:55:13.712+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/stop_points/snapshot_20250421_005513_66811.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "fe5dc244c5c201cb04e0ef3347c67ed7"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: 228ygw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F58B82973BC\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:55:13 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "fe5dc244c5c201cb04e0ef3347c67ed7"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: 228ygw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F58B82973BC\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:55:13 GMT\r\n\r\n'
+[2025-04-21T00:55:43.965+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:55:43.968+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:55:43.970+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005513_66811.json to s3://tfl/data/raw/stop_points/snapshot_20250421_005513_66811.json at timestamp 20250421_005513_66811
+[2025-04-21T00:55:49.442+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:55:49.443+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:55:49.549+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482b123740>
+[2025-04-21T00:55:49.587+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:55:49.588+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:55:49.620+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/timetables/snapshot_20250421_005549_56746.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "52d8be489460549ad63aae9f2d77d512"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: qcaOFA==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F6113BDFC06\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:55:49 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "52d8be489460549ad63aae9f2d77d512"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: qcaOFA==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F6113BDFC06\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:55:49 GMT\r\n\r\n'
+[2025-04-21T00:56:19.874+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:56:19.876+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:56:19.878+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005549_56746.json to s3://tfl/data/raw/timetables/snapshot_20250421_005549_56746.json at timestamp 20250421_005549_56746
+[2025-04-21T00:56:21.713+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:56:21.716+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:56:21.829+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f4826499a30>
+[2025-04-21T00:56:21.864+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:56:21.867+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:56:21.902+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/stop_points/snapshot_20250421_005621_84793.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "fe6727b5fad95354a7cf92f889499808"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: GZAfyQ==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F689894FB27\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:56:21 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "fe6727b5fad95354a7cf92f889499808"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: GZAfyQ==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F689894FB27\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:56:21 GMT\r\n\r\n'
+[2025-04-21T00:56:52.154+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:56:52.156+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:56:52.159+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005621_84793.json to s3://tfl/data/raw/stop_points/snapshot_20250421_005621_84793.json at timestamp 20250421_005621_84793
+[2025-04-21T00:56:53.566+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:56:53.568+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:56:53.668+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482525ffe0>
+[2025-04-21T00:56:53.708+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:56:53.710+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:56:53.741+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/timetables/snapshot_20250421_005653_68798.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "bac22619a3c7d5903d5ad3af5ad22ee4"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: 8611ng==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F7001B7E253\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:56:53 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "bac22619a3c7d5903d5ad3af5ad22ee4"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: 8611ng==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F7001B7E253\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:56:53 GMT\r\n\r\n'
+[2025-04-21T00:57:23.996+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:57:24.000+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:57:24.003+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005653_68798.json to s3://tfl/data/raw/timetables/snapshot_20250421_005653_68798.json at timestamp 20250421_005653_68798
+[2025-04-21T00:57:25.700+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:57:25.704+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:57:25.852+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482528c0b0>
+[2025-04-21T00:57:25.892+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:57:25.893+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:57:25.910+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/stop_points/snapshot_20250421_005725_87260.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "2b0e0a1a7fa6f0cd944bc01adeab3bb6"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: hDoVuQ==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F777FFCA115\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:57:25 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "2b0e0a1a7fa6f0cd944bc01adeab3bb6"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: hDoVuQ==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F777FFCA115\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:57:25 GMT\r\n\r\n'
+[2025-04-21T00:57:56.164+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:57:56.166+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:57:56.168+0000] {my_dag.py:61} INFO - Uploaded snapshot_20250421_005725_87260.json to s3://tfl/data/raw/stop_points/snapshot_20250421_005725_87260.json at timestamp 20250421_005725_87260
+[2025-04-21T00:57:57.535+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T00:57:57.536+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T00:57:57.654+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f482b510590>
+[2025-04-21T00:57:57.699+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:57:57.700+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T00:57:57.731+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/timetables/snapshot_20250421_005757_67594.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "cc1313b0ff90a23e8307d8ae578fdb64"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: C1X8pQ==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F7EE7D74521\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:57:57 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "cc1313b0ff90a23e8307d8ae578fdb64"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: C1X8pQ==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 18382F7EE7D74521\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1537\r\nX-Ratelimit-Remaining: 1537\r\nX-Xss-Protection: 1; mode=block\r\nDate: Mon, 21 Apr 2025 00:57:57 GMT\r\n\r\n'
+[2025-04-21T00:58:15.102+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-04-21T00:58:15.109+0000] {process_utils.py:132} INFO - Sending 15 to group 32043. PIDs of all processes in the group: [32043]
+[2025-04-21T00:58:15.114+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 32043
+[2025-04-21T00:58:15.117+0000] {taskinstance.py:3094} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-04-21T00:58:15.133+0000] {taskinstance.py:3095} ERROR - Stacktrace: 
+  File "/home/***/.local/bin/***", line 8, in <module>
+    sys.exit(main())
+  File "/home/***/.local/lib/python3.12/site-packages/***/__main__.py", line 62, in main
+    args.func(args)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/providers_configuration_loader.py", line 55, in wrapped_function
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/scheduler_command.py", line 56, in scheduler
+    run_command_with_daemon_option(
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/daemon_utils.py", line 86, in run_command_with_daemon_option
+    callback()
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/scheduler_command.py", line 59, in <lambda>
+    callback=lambda: _run_scheduler_job(args),
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/scheduler_command.py", line 47, in _run_scheduler_job
+    run_job(job=job_runner.job, execute_callable=job_runner._execute)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 421, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 450, in execute_job
+    ret = execute_callable()
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/scheduler_job_runner.py", line 990, in _execute
+    executor.start()
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 392, in start
+    self.impl.start()
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 330, in start
+    worker.start()
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282, in _Popen
+    return Popen(process_obj)
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 80, in run
+    return super().run()
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/traces/tracer.py", line 58, in wrapper
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 211, in do_work
+    self.execute_work(key=key, command=command)
+  File "/home/***/.local/lib/python3.12/site-packages/***/traces/tracer.py", line 58, in wrapper
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 100, in execute_work
+    state = self._execute_work_in_fork(command)
+  File "/home/***/.local/lib/python3.12/site-packages/***/traces/tracer.py", line 58, in wrapper
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 142, in _execute_work_in_fork
+    args.func(args)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 254, in _run_task_by_selected_method
+    return _run_task_by_local_task_job(args, ti)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 322, in _run_task_by_local_task_job
+    ret = run_job(job=job_runner.job, execute_callable=job_runner._execute)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 421, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 450, in execute_job
+    ret = execute_callable()
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/local_task_job_runner.py", line 171, in _execute
+    self.task_runner.start()
+  File "/home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py", line 55, in start
+    self.process = self._start_by_fork()
+  File "/home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/home/***/.local/lib/python3.12/site-packages/***/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/opt/***/dags/my_dag.py", line 85, in get_api_data
+    timetable_key = save_new_json(ed, data=_, category="timetables")
+  File "/opt/***/dags/my_dag.py", line 58, in save_new_json
+    s3_hook.load_file(
+  File "/home/***/.local/lib/python3.12/site-packages/***/providers/amazon/aws/hooks/s3.py", line 153, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/providers/amazon/aws/hooks/s3.py", line 126, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/providers/amazon/aws/hooks/s3.py", line 1135, in load_file
+    client.upload_file(
+  File "/home/***/.local/lib/python3.12/site-packages/boto3/s3/inject.py", line 145, in upload_file
+    return transfer.upload_file(
+  File "/home/***/.local/lib/python3.12/site-packages/boto3/s3/transfer.py", line 372, in upload_file
+    future.result()
+  File "/home/***/.local/lib/python3.12/site-packages/s3transfer/futures.py", line 103, in result
+    return self._coordinator.result()
+  File "/home/***/.local/lib/python3.12/site-packages/s3transfer/futures.py", line 259, in result
+    self._done_event.wait(MAXINT)
+  File "/usr/local/lib/python3.12/threading.py", line 655, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/local/lib/python3.12/threading.py", line 355, in wait
+    waiter.acquire()
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 3095, in signal_handler
+    self.log.error("Stacktrace: \n%s", "".join(traceback.format_stack()))
+
+[2025-04-21T00:58:17.246+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses

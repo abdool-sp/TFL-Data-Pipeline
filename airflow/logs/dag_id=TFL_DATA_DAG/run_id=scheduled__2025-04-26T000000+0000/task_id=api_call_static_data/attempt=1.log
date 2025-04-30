@@ -1,0 +1,66 @@
+[2025-04-27T03:19:36.931+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-27T03:19:36.944+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG.api_call_static_data scheduled__2025-04-26T00:00:00+00:00 [queued]>
+[2025-04-27T03:19:36.950+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG.api_call_static_data scheduled__2025-04-26T00:00:00+00:00 [queued]>
+[2025-04-27T03:19:36.954+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-04-27T03:19:36.965+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): api_call_static_data> on 2025-04-26 00:00:00+00:00
+[2025-04-27T03:19:36.971+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=4549) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-27T03:19:36.973+0000] {standard_task_runner.py:72} INFO - Started process 4567 to run task
+[2025-04-27T03:19:36.972+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG', 'api_call_static_data', 'scheduled__2025-04-26T00:00:00+00:00', '--job-id', '417', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpl0hx3k2a']
+[2025-04-27T03:19:36.975+0000] {standard_task_runner.py:105} INFO - Job 417: Subtask api_call_static_data
+[2025-04-27T03:19:37.020+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG.api_call_static_data scheduled__2025-04-26T00:00:00+00:00 [running]> on host 605a3e254bf1
+[2025-04-27T03:19:37.080+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG' AIRFLOW_CTX_TASK_ID='api_call_static_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-26T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-26T00:00:00+00:00'
+[2025-04-27T03:19:37.082+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-27T03:19:37.098+0000] {logging_mixin.py:190} INFO - Error fetching metadata for stop 490000036S: HTTPSConnectionPool(host='api.tfl.gov.uk', port=443): Max retries exceeded with url: /StopPoint/490000036S?app_key=7d28b460f14e44c48e59a47afc904642 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6eb943cbf0>: Failed to resolve 'api.tfl.gov.uk' ([Errno -2] Name or service not known)"))
+[2025-04-27T03:19:37.108+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-27T03:19:37.109+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-27T03:19:37.352+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f6eb8aaf740>
+[2025-04-27T03:19:37.412+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T03:19:37.429+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/stop_points/snapshot_20250427_031937_38728.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "37a6259cc0c1dae299a7866489dff0bd"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: Jcv8Tw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 183A0EB54DEBF680\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1293\r\nX-Ratelimit-Remaining: 1293\r\nX-Xss-Protection: 1; mode=block\r\nDate: Sun, 27 Apr 2025 03:19:37 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "37a6259cc0c1dae299a7866489dff0bd"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: Jcv8Tw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 183A0EB54DEBF680\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1293\r\nX-Ratelimit-Remaining: 1293\r\nX-Xss-Protection: 1; mode=block\r\nDate: Sun, 27 Apr 2025 03:19:37 GMT\r\n\r\n'
+[2025-04-27T08:45:32.203+0000] {job.py:229} INFO - Heartbeat recovered after 19550.20 seconds
+[2025-04-27T08:45:52.849+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:45:52.851+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:45:52.853+0000] {my_dag.py:73} INFO - Uploaded snapshot_20250427_031937_38728.json to s3://tfl/data/raw/stop_points/snapshot_20250427_031937_38728.json at timestamp 20250427_031937_38728
+[2025-04-27T08:45:52.865+0000] {logging_mixin.py:190} INFO - Error fetching data  HTTPSConnectionPool(host='api.tfl.gov.uk', port=443): Max retries exceeded with url: /Line/24/Timetable/490000036S?app_key=7d28b460f14e44c48e59a47afc904642 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6eb8a75f10>: Failed to resolve 'api.tfl.gov.uk' ([Errno -2] Name or service not known)"))
+[2025-04-27T08:45:52.870+0000] {logging_mixin.py:190} INFO - Error fetching metadata for stop 490000089A: HTTPSConnectionPool(host='api.tfl.gov.uk', port=443): Max retries exceeded with url: /StopPoint/490000089A?app_key=7d28b460f14e44c48e59a47afc904642 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6eb8a76960>: Failed to resolve 'api.tfl.gov.uk' ([Errno -2] Name or service not known)"))
+[2025-04-27T08:45:52.881+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-27T08:45:52.882+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-27T08:45:52.933+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f6eb80b5790>
+[2025-04-27T08:45:52.970+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:45:52.971+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:45:52.985+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/stop_points/snapshot_20250427_084552_95274.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "37a6259cc0c1dae299a7866489dff0bd"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: Jcv8Tw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 183A20831824E625\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1293\r\nX-Ratelimit-Remaining: 1293\r\nX-Xss-Protection: 1; mode=block\r\nDate: Sun, 27 Apr 2025 08:45:52 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "37a6259cc0c1dae299a7866489dff0bd"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: Jcv8Tw==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 183A20831824E625\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1293\r\nX-Ratelimit-Remaining: 1293\r\nX-Xss-Protection: 1; mode=block\r\nDate: Sun, 27 Apr 2025 08:45:52 GMT\r\n\r\n'
+[2025-04-27T08:46:23.238+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:46:23.240+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:46:23.243+0000] {my_dag.py:73} INFO - Uploaded snapshot_20250427_084552_95274.json to s3://tfl/data/raw/stop_points/snapshot_20250427_084552_95274.json at timestamp 20250427_084552_95274
+[2025-04-27T08:46:25.015+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-27T08:46:25.017+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-27T08:46:25.073+0000] {logging_mixin.py:190} INFO - <botocore.client.S3 object at 0x7f6eb566ee40>
+[2025-04-27T08:46:25.120+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:46:25.122+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:46:25.175+0000] {connection.py:521} WARNING - Failed to parse headers (url=http://host.docker.internal:9000/tfl/data/raw/timetables/snapshot_20250427_084625_09009.json): [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "6f49b842f714f0f3b8d1f76b47385c65"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: bDpwoQ==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 183A208A948C91F1\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1293\r\nX-Ratelimit-Remaining: 1293\r\nX-Xss-Protection: 1; mode=block\r\nDate: Sun, 27 Apr 2025 08:46:25 GMT\r\n\r\n'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 519, in getresponse
+    assert_header_parsing(httplib_response.msg)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/response.py", line 88, in assert_header_parsing
+    raise HeaderParsingError(defects=defects, unparsed_data=unparsed_data)
+urllib3.exceptions.HeaderParsingError: [MissingHeaderBodySeparatorDefect()], unparsed data: 'HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nContent-Length: 0\r\nETag: "6f49b842f714f0f3b8d1f76b47385c65"\r\nServer: MinIO\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin\r\nVary: Accept-Encoding\r\nX-Amz-Checksum-Crc32: bDpwoQ==\r\nX-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\nX-Amz-Request-Id: 183A208A948C91F1\r\nX-Content-Type-Options: nosniff\r\nX-Ratelimit-Limit: 1293\r\nX-Ratelimit-Remaining: 1293\r\nX-Xss-Protection: 1; mode=block\r\nDate: Sun, 27 Apr 2025 08:46:25 GMT\r\n\r\n'
+[2025-04-27T08:46:55.426+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:46:55.427+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-27T08:46:55.428+0000] {my_dag.py:73} INFO - Uploaded snapshot_20250427_084625_09009.json to s3://tfl/data/raw/timetables/snapshot_20250427_084625_09009.json at timestamp 20250427_084625_09009
+[2025-04-27T08:46:55.453+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-27T08:46:55.462+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-27T08:46:55.463+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=TFL_DATA_DAG, task_id=api_call_static_data, run_id=scheduled__2025-04-26T00:00:00+00:00, execution_date=20250426T000000, start_date=20250427T031936, end_date=20250427T084655
+[2025-04-27T08:46:55.505+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-27T08:46:55.526+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-27T08:46:55.531+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

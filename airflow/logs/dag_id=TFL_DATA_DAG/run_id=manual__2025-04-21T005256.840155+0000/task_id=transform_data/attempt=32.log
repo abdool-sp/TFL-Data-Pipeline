@@ -1,0 +1,83 @@
+[2025-04-21T02:03:30.193+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-21T02:03:30.205+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG.transform_data manual__2025-04-21T00:52:56.840155+00:00 [queued]>
+[2025-04-21T02:03:30.211+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG.transform_data manual__2025-04-21T00:52:56.840155+00:00 [queued]>
+[2025-04-21T02:03:30.212+0000] {taskinstance.py:2867} INFO - Starting attempt 32 of 37
+[2025-04-21T02:03:30.222+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): transform_data> on 2025-04-21 00:52:56.840155+00:00
+[2025-04-21T02:03:30.226+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=2555) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-21T02:03:30.226+0000] {standard_task_runner.py:72} INFO - Started process 2556 to run task
+[2025-04-21T02:03:30.226+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG', 'transform_data', 'manual__2025-04-21T00:52:56.840155+00:00', '--job-id', '282', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp9f1d9yqx']
+[2025-04-21T02:03:30.227+0000] {standard_task_runner.py:105} INFO - Job 282: Subtask transform_data
+[2025-04-21T02:03:30.282+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG.transform_data manual__2025-04-21T00:52:56.840155+00:00 [running]> on host 197005dfdcea
+[2025-04-21T02:03:30.332+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-21T00:52:56.840155+00:00' AIRFLOW_CTX_TRY_NUMBER='32' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-21T00:52:56.840155+00:00'
+[2025-04-21T02:03:30.333+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-21T02:03:30.354+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-21T02:03:30.356+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-21T02:03:30.506+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_010357_06314.json
+[2025-04-21T02:03:30.515+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_010504_93531.json
+[2025-04-21T02:03:30.521+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_010613_21054.json
+[2025-04-21T02:03:30.537+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_010717_13343.json
+[2025-04-21T02:03:30.557+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_010829_42231.json
+[2025-04-21T02:03:30.568+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_010938_76117.json
+[2025-04-21T02:03:30.573+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_011057_99282.json
+[2025-04-21T02:03:30.580+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_011207_14671.json
+[2025-04-21T02:03:30.587+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_011311_10128.json
+[2025-04-21T02:03:30.594+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_011415_44925.json
+[2025-04-21T02:03:30.602+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_011519_31499.json
+[2025-04-21T02:03:30.608+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/stop_points/snapshot_20250421_011624_66421.json
+[2025-04-21T02:03:30.646+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_010433_22637.json
+[2025-04-21T02:03:30.649+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_010433_22637.json
+[2025-04-21T02:03:30.665+0000] {logging_mixin.py:190} INFO - saving key:  Sunday
+[2025-04-21T02:03:30.919+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:30.920+0000] {my_dag.py:108} INFO - Uploaded timetable_cleaned_20250421_020330_66562.json to s3://tfl/Sunday at timestamp 20250421_020330_66562
+[2025-04-21T02:03:30.987+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_010540_24868.json
+[2025-04-21T02:03:30.990+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_010540_24868.json
+[2025-04-21T02:03:30.998+0000] {logging_mixin.py:190} INFO - saving key:  Sunday
+[2025-04-21T02:03:31.027+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.028+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.029+0000] {my_dag.py:108} INFO - Uploaded timetable_cleaned_20250421_020330_99845.json to s3://tfl/Sunday at timestamp 20250421_020330_99845
+[2025-04-21T02:03:31.056+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_010645_39443.json
+[2025-04-21T02:03:31.058+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_010645_39443.json
+[2025-04-21T02:03:31.068+0000] {logging_mixin.py:190} INFO - saving key:  Sunday
+[2025-04-21T02:03:31.103+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.104+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.105+0000] {my_dag.py:108} INFO - Uploaded timetable_cleaned_20250421_020331_06811.json to s3://tfl/Sunday at timestamp 20250421_020331_06811
+[2025-04-21T02:03:31.154+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_010755_20693.json
+[2025-04-21T02:03:31.161+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_010755_20693.json
+[2025-04-21T02:03:31.173+0000] {logging_mixin.py:190} INFO - saving key:  Sunday
+[2025-04-21T02:03:31.216+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.216+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.217+0000] {my_dag.py:108} INFO - Uploaded timetable_cleaned_20250421_020331_17301.json to s3://tfl/Sunday at timestamp 20250421_020331_17301
+[2025-04-21T02:03:31.261+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_010902_73445.json
+[2025-04-21T02:03:31.265+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_010902_73445.json
+[2025-04-21T02:03:31.283+0000] {logging_mixin.py:190} INFO - saving key:  Sunday
+[2025-04-21T02:03:31.410+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.411+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.412+0000] {my_dag.py:108} INFO - Uploaded timetable_cleaned_20250421_020331_28355.json to s3://tfl/Sunday at timestamp 20250421_020331_28355
+[2025-04-21T02:03:31.429+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_011018_01839.json
+[2025-04-21T02:03:31.432+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_011018_01839.json
+[2025-04-21T02:03:31.449+0000] {logging_mixin.py:190} INFO - saving key:  Sunday
+[2025-04-21T02:03:31.516+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.518+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.518+0000] {my_dag.py:108} INFO - Uploaded timetable_cleaned_20250421_020331_44965.json to s3://tfl/Sunday at timestamp 20250421_020331_44965
+[2025-04-21T02:03:31.525+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_011135_43855.json
+[2025-04-21T02:03:31.526+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_011135_43855.json
+[2025-04-21T02:03:31.542+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_011238_82427.json
+[2025-04-21T02:03:31.544+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_011238_82427.json
+[2025-04-21T02:03:31.562+0000] {logging_mixin.py:190} INFO - saving key:  Sunday
+[2025-04-21T02:03:31.623+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.624+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-21T02:03:31.625+0000] {my_dag.py:108} INFO - Uploaded timetable_cleaned_20250421_020331_56238.json to s3://tfl/Sunday at timestamp 20250421_020331_56238
+[2025-04-21T02:03:31.632+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_011343_94052.json
+[2025-04-21T02:03:31.633+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_011343_94052.json
+[2025-04-21T02:03:31.641+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_011447_82216.json
+[2025-04-21T02:03:31.642+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_011447_82216.json
+[2025-04-21T02:03:31.649+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_011551_33368.json
+[2025-04-21T02:03:31.649+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_011551_33368.json
+[2025-04-21T02:03:31.654+0000] {logging_mixin.py:190} INFO - cleaning:  data/raw/timetables/snapshot_20250421_011657_09417.json
+[2025-04-21T02:03:31.655+0000] {logging_mixin.py:190} INFO - key data/raw/timetables/snapshot_20250421_011657_09417.json
+[2025-04-21T02:03:31.656+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-21T02:03:31.661+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-21T02:03:31.663+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=TFL_DATA_DAG, task_id=transform_data, run_id=manual__2025-04-21T00:52:56.840155+00:00, execution_date=20250421T005256, start_date=20250421T020330, end_date=20250421T020331
+[2025-04-21T02:03:31.718+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-21T02:03:31.727+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-21T02:03:31.731+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

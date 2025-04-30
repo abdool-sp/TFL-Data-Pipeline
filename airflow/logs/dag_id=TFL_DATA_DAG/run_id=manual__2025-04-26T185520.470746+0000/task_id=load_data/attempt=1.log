@@ -1,0 +1,53 @@
+[2025-04-26T18:57:38.829+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-26T18:57:38.857+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG.load_data manual__2025-04-26T18:55:20.470746+00:00 [queued]>
+[2025-04-26T18:57:38.871+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG.load_data manual__2025-04-26T18:55:20.470746+00:00 [queued]>
+[2025-04-26T18:57:38.873+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-04-26T18:57:38.894+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_data> on 2025-04-26 18:55:20.470746+00:00
+[2025-04-26T18:57:38.907+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3342) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-26T18:57:38.906+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG', 'load_data', 'manual__2025-04-26T18:55:20.470746+00:00', '--job-id', '416', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpc0kqzsrg']
+[2025-04-26T18:57:38.910+0000] {standard_task_runner.py:72} INFO - Started process 3350 to run task
+[2025-04-26T18:57:38.911+0000] {standard_task_runner.py:105} INFO - Job 416: Subtask load_data
+[2025-04-26T18:57:38.984+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG.load_data manual__2025-04-26T18:55:20.470746+00:00 [running]> on host 605a3e254bf1
+[2025-04-26T18:57:39.074+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-26T18:55:20.470746+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-26T18:55:20.470746+00:00'
+[2025-04-26T18:57:39.078+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-26T18:57:39.118+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-26T18:57:39.121+0000] {connection.py:424} INFO - Snowflake Connector for Python Version: 3.13.2, Python Version: 3.12.9, Platform: Linux-6.10.0-linuxkit-x86_64-with-glibc2.36
+[2025-04-26T18:57:39.123+0000] {connection.py:1213} INFO - Connecting to GLOBAL Snowflake domain
+[2025-04-26T18:57:39.131+0000] {connection.py:1295} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-04-26T18:57:41.708+0000] {logging_mixin.py:190} INFO - snowflake conn:  <snowflake.connector.connection.SnowflakeConnection object at 0x7f6eb9510350>
+[2025-04-26T18:57:41.742+0000] {logging_mixin.py:190} INFO - tt_keys ['data/cleaned/timetables/snapshot_20250426_185557_74595.json', 'data/cleaned/timetables/snapshot_20250426_185703_30484.json']
+[2025-04-26T18:57:41.756+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-26T18:57:41.758+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-26T18:57:45.219+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  1
+[2025-04-26T18:57:45.221+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-26T18:57:45.733+0000] {logging_mixin.py:190} INFO - sched len:  115
+[2025-04-26T18:57:45.735+0000] {logging_mixin.py:190} INFO - ti len:  115
+[2025-04-26T19:00:09.195+0000] {logging_mixin.py:190} INFO - for key:  Monday to Thursday
+[2025-04-26T19:00:09.525+0000] {logging_mixin.py:190} INFO - sched len:  116
+[2025-04-26T19:00:09.527+0000] {logging_mixin.py:190} INFO - ti len:  116
+[2025-04-26T19:02:22.738+0000] {logging_mixin.py:190} INFO - for key:  Saturday
+[2025-04-26T19:02:23.075+0000] {logging_mixin.py:190} INFO - sched len:  111
+[2025-04-26T19:02:23.078+0000] {logging_mixin.py:190} INFO - ti len:  111
+[2025-04-26T19:05:07.391+0000] {logging_mixin.py:190} INFO - for key:  Sunday
+[2025-04-26T19:05:07.934+0000] {logging_mixin.py:190} INFO - sched len:  100
+[2025-04-26T19:05:07.935+0000] {logging_mixin.py:190} INFO - ti len:  100
+[2025-04-26T19:07:25.591+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  101
+[2025-04-26T19:07:25.594+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-26T19:07:26.145+0000] {logging_mixin.py:190} INFO - sched len:  113
+[2025-04-26T19:07:26.147+0000] {logging_mixin.py:190} INFO - ti len:  113
+[2025-04-26T19:09:54.523+0000] {logging_mixin.py:190} INFO - for key:  Monday to Thursday
+[2025-04-26T19:09:55.137+0000] {logging_mixin.py:190} INFO - sched len:  114
+[2025-04-26T19:09:55.140+0000] {logging_mixin.py:190} INFO - ti len:  114
+[2025-04-26T19:12:20.139+0000] {logging_mixin.py:190} INFO - for key:  Saturday
+[2025-04-26T19:12:20.549+0000] {logging_mixin.py:190} INFO - sched len:  112
+[2025-04-26T19:12:20.551+0000] {logging_mixin.py:190} INFO - ti len:  112
+[2025-04-26T19:18:19.218+0000] {logging_mixin.py:190} INFO - for key:  Sunday
+[2025-04-26T19:18:19.600+0000] {logging_mixin.py:190} INFO - sched len:  101
+[2025-04-26T19:18:19.603+0000] {logging_mixin.py:190} INFO - ti len:  101
+[2025-04-26T19:21:46.415+0000] {my_dag.py:290} INFO - Successfully Inserted stop_points_metadata and timetable for 2025-04-26 19:21:46.415836
+[2025-04-26T19:21:46.417+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-26T19:21:46.427+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-26T19:21:46.429+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=TFL_DATA_DAG, task_id=load_data, run_id=manual__2025-04-26T18:55:20.470746+00:00, execution_date=20250426T185520, start_date=20250426T185738, end_date=20250426T192146
+[2025-04-26T19:21:46.490+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-26T19:21:46.506+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-26T19:21:46.510+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

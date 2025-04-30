@@ -1,0 +1,31 @@
+[2025-04-24T08:59:33.250+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-24T08:59:33.268+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG.transform_data scheduled__2025-04-23T00:00:00+00:00 [queued]>
+[2025-04-24T08:59:33.277+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG.transform_data scheduled__2025-04-23T00:00:00+00:00 [queued]>
+[2025-04-24T08:59:33.278+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 6
+[2025-04-24T08:59:33.292+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): transform_data> on 2025-04-23 00:00:00+00:00
+[2025-04-24T08:59:33.299+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG', 'transform_data', 'scheduled__2025-04-23T00:00:00+00:00', '--job-id', '368', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpf0ccfbm2']
+[2025-04-24T08:59:33.302+0000] {standard_task_runner.py:105} INFO - Job 368: Subtask transform_data
+[2025-04-24T08:59:33.303+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=908) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-24T08:59:33.304+0000] {standard_task_runner.py:72} INFO - Started process 911 to run task
+[2025-04-24T08:59:33.354+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG.transform_data scheduled__2025-04-23T00:00:00+00:00 [running]> on host 605a3e254bf1
+[2025-04-24T08:59:33.415+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-23T00:00:00+00:00'
+[2025-04-24T08:59:33.417+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-24T08:59:33.464+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-24T08:59:33.466+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-24T08:59:33.753+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-24T08:59:33.754+0000] {my_dag.py:120} INFO - Uploaded stop_points_cleaned_20250424_085933_55531.json to s3://tfl/data/cleaned/stop_points/snapshot_20250424_085722_89575.json at timestamp 20250424_085933_55531
+[2025-04-24T08:59:33.784+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-24T08:59:33.785+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-24T08:59:33.788+0000] {my_dag.py:120} INFO - Uploaded stop_points_cleaned_20250424_085933_76757.json to s3://tfl/data/cleaned/stop_points/snapshot_20250424_085828_83240.json at timestamp 20250424_085933_76757
+[2025-04-24T08:59:33.905+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-24T08:59:33.906+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-24T08:59:33.907+0000] {my_dag.py:120} INFO - Uploaded timetable_cleaned_20250424_085933_83418.json to s3://tfl/data/cleaned/timetables/snapshot_20250424_085757_55650.json at timestamp 20250424_085933_83418
+[2025-04-24T08:59:33.994+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-24T08:59:33.997+0000] {hook.py:208} WARNING - Data lineage tracking is disabled. Register a hook lineage reader to start tracking hook lineage.
+[2025-04-24T08:59:34.007+0000] {my_dag.py:120} INFO - Uploaded timetable_cleaned_20250424_085933_94382.json to s3://tfl/data/cleaned/timetables/snapshot_20250424_085901_88362.json at timestamp 20250424_085933_94382
+[2025-04-24T08:59:34.034+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-24T08:59:34.042+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-24T08:59:34.043+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=TFL_DATA_DAG, task_id=transform_data, run_id=scheduled__2025-04-23T00:00:00+00:00, execution_date=20250423T000000, start_date=20250424T085933, end_date=20250424T085934
+[2025-04-24T08:59:34.105+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-24T08:59:34.125+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-24T08:59:34.129+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
