@@ -95,9 +95,11 @@ docker-compose up -d
 Create airflow connections
 Create an s3 connection to conn_id as **minio_conn** and a snowflake connection with conn_id **snowflake_conn** using your credentials.
 
-Launch Streamlit Dashboard
+## Launch Streamlit Dashboard
+```
 pip install -r requirements.txt
 streamlit run dashboard.py
+```
 The dashboard will open in your browser at http://localhost:8501/
 
 
