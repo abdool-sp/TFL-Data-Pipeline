@@ -1,7 +1,6 @@
 # TfL Real-Time Transport Data Pipeline
 
-**Author:** abdool  
-**Role:** Data Engineer  
+**Author:** abdool   
 **Tech Stack:** Apache Airflow, Apache Kafka, Snowflake, MinIO, Streamlit, Docker  
 
 ---
@@ -44,14 +43,11 @@ It ingests **live transport data** (arrivals, service disruptions, timetables, s
 
 ---
 
-
-
----
-
 ## Project Architecture
 
 
 flowchart TD
+```
   A[TfL APIs (Arrivals, Timetables, Disruptions, Stop Points)] --> B[Kafka Producer]
   B --> C[Kafka Topics]
   C --> D[Airflow DAGs]
@@ -59,21 +55,24 @@ flowchart TD
   D --> F[Transformations (Python scripts)]
   F --> G[Snowflake (curated warehouse)]
   G --> H[Streamlit Dashboard]
-
+```
 ## How to Reproduce
 Pre-requisites:
     Docker and Docker Compose installed
     Snowflake account
     TfL Open API account (for API keys)
 
-# Clone the repo
+Clone the repo
+```
 git clone https://github.com/yourusername/tfl-realtime-pipeline.git
 cd tfl-realtime-pipeline
+```
 
-# Create Snowflake Tables
+Create Snowflake Tables
 Run all the queries in snowflake/create_tables.sql and then snowflake/create_views.sql  in your snowflake warehouse 
 
-# Create .env file in the project root with:
+Create .env file in the project root with:
+```
 AIRFLOW_UID=50000
 SNOWFLAKE_USER=your_user
 SNOWFLAKE_PASSWORD=your_password
@@ -88,15 +87,15 @@ BASE_URL=ttps://api.tfl.gov.uk
 S3_ENDPOINT_URL=your_endpoint_url,
 AWS_ACCESS_KEY_ID=your_aws_access_key_id,
 AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+```
 
-
-# Start Kafka, MinIO, and Airflow with Docker Compose
+Start Kafka, MinIO, and Airflow with Docker Compose
 docker-compose up -d
 
-# Create airflow connections
+Create airflow connections
 Create an s3 connection to conn_id as **minio_conn** and a snowflake connection with conn_id **snowflake_conn** using your credentials.
 
-# Launch Streamlit Dashboard
+Launch Streamlit Dashboard
 pip install -r requirements.txt
 streamlit run dashboard.py
 The dashboard will open in your browser at http://localhost:8501/

@@ -306,7 +306,7 @@ def load_data(**kwargs):
 
         
 with DAG(
-                dag_id= "TFL_DATA_DAG",
+                dag_id= "TFL_DATA_DAG_V2",
                 default_args=default_args,
                 schedule_interval="@daily",
                 start_date=days_ago(1)
