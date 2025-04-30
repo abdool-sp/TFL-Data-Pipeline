@@ -8,4 +8,3 @@ airflow/dags/snowflake_hook.py
 airflow/plugins/lines.json
 arrivals.json
 line_stop.json
-.gitignore
