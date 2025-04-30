@@ -6,5 +6,5 @@ notes.txt
 airflow/dags/dag_with_python_operator.py
 airflow/dags/snowflake_hook.py
 airflow/plugins/lines.json
-arrivals.json
+arrival.json
 line_stop.json
