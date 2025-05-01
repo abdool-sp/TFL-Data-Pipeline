@@ -1,0 +1,173 @@
+[2025-04-30T14:45:51.515+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-30T14:45:51.529+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T13:18:41.130562+00:00 [queued]>
+[2025-04-30T14:45:51.536+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T13:18:41.130562+00:00 [queued]>
+[2025-04-30T14:45:51.537+0000] {taskinstance.py:2867} INFO - Starting attempt 4 of 6
+[2025-04-30T14:45:51.546+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_data> on 2025-04-30 13:18:41.130562+00:00
+[2025-04-30T14:45:51.552+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG_V2', 'load_data', 'manual__2025-04-30T13:18:41.130562+00:00', '--job-id', '443', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpqiyjat2d']
+[2025-04-30T14:45:51.554+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=10481) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-30T14:45:51.556+0000] {standard_task_runner.py:72} INFO - Started process 10484 to run task
+[2025-04-30T14:45:51.555+0000] {standard_task_runner.py:105} INFO - Job 443: Subtask load_data
+[2025-04-30T14:45:51.615+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T13:18:41.130562+00:00 [running]> on host 605a3e254bf1
+[2025-04-30T14:45:51.679+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG_V2' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-30T13:18:41.130562+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-30T13:18:41.130562+00:00'
+[2025-04-30T14:45:51.684+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-30T14:45:51.699+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-30T14:45:51.702+0000] {connection.py:424} INFO - Snowflake Connector for Python Version: 3.13.2, Python Version: 3.12.9, Platform: Linux-6.10.0-linuxkit-x86_64-with-glibc2.36
+[2025-04-30T14:45:51.704+0000] {connection.py:1213} INFO - Connecting to GLOBAL Snowflake domain
+[2025-04-30T14:45:51.705+0000] {connection.py:1295} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-04-30T14:45:53.308+0000] {logging_mixin.py:190} INFO - snowflake conn:  <snowflake.connector.connection.SnowflakeConnection object at 0x7f666adfc050>
+[2025-04-30T14:45:53.675+0000] {logging_mixin.py:190} INFO - tt_keys ['data/cleaned/timetables/snapshot_20250430_131916_37657.json', 'data/cleaned/timetables/snapshot_20250430_131956_89127.json', 'data/cleaned/timetables/snapshot_20250430_132101_08582.json', 'data/cleaned/timetables/snapshot_20250430_132235_01772.json']
+[2025-04-30T14:45:53.681+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-30T14:45:53.681+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-30T14:46:07.707+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  701
+[2025-04-30T14:46:07.713+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-30T14:46:08.040+0000] {logging_mixin.py:190} INFO - sched len:  115
+[2025-04-30T14:46:08.043+0000] {logging_mixin.py:190} INFO - ti len:  115
+[2025-04-30T14:48:22.287+0000] {logging_mixin.py:190} INFO - for key:  Monday to Thursday
+[2025-04-30T14:48:22.646+0000] {logging_mixin.py:190} INFO - sched len:  116
+[2025-04-30T14:48:22.652+0000] {logging_mixin.py:190} INFO - ti len:  116
+[2025-04-30T14:50:47.926+0000] {logging_mixin.py:190} INFO - for key:  Saturday
+[2025-04-30T14:50:48.877+0000] {logging_mixin.py:190} INFO - sched len:  111
+[2025-04-30T14:50:48.878+0000] {logging_mixin.py:190} INFO - ti len:  111
+[2025-04-30T14:52:58.946+0000] {logging_mixin.py:190} INFO - for key:  Sunday
+[2025-04-30T14:52:59.273+0000] {logging_mixin.py:190} INFO - sched len:  100
+[2025-04-30T14:52:59.274+0000] {logging_mixin.py:190} INFO - ti len:  100
+[2025-04-30T14:54:51.533+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  701
+[2025-04-30T14:54:51.540+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-30T14:54:51.911+0000] {logging_mixin.py:190} INFO - sched len:  113
+[2025-04-30T14:54:51.912+0000] {logging_mixin.py:190} INFO - ti len:  113
+[2025-04-30T14:57:19.485+0000] {logging_mixin.py:190} INFO - for key:  Monday to Thursday
+[2025-04-30T14:57:20.696+0000] {logging_mixin.py:190} INFO - sched len:  114
+[2025-04-30T14:57:20.697+0000] {logging_mixin.py:190} INFO - ti len:  114
+[2025-04-30T14:59:38.594+0000] {logging_mixin.py:190} INFO - for key:  Saturday
+[2025-04-30T14:59:38.910+0000] {logging_mixin.py:190} INFO - sched len:  112
+[2025-04-30T14:59:38.914+0000] {logging_mixin.py:190} INFO - ti len:  112
+[2025-04-30T15:01:59.745+0000] {logging_mixin.py:190} INFO - for key:  Sunday
+[2025-04-30T15:02:00.063+0000] {logging_mixin.py:190} INFO - sched len:  101
+[2025-04-30T15:02:00.064+0000] {logging_mixin.py:190} INFO - ti len:  101
+[2025-04-30T15:04:08.882+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  701
+[2025-04-30T15:04:08.884+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-30T15:04:09.209+0000] {logging_mixin.py:190} INFO - sched len:  113
+[2025-04-30T15:04:09.212+0000] {logging_mixin.py:190} INFO - ti len:  113
+[2025-04-30T15:06:19.446+0000] {logging_mixin.py:190} INFO - for key:  Monday to Thursday
+[2025-04-30T15:06:19.791+0000] {logging_mixin.py:190} INFO - sched len:  114
+[2025-04-30T15:06:19.792+0000] {logging_mixin.py:190} INFO - ti len:  114
+[2025-04-30T15:08:44.038+0000] {logging_mixin.py:190} INFO - for key:  Saturday
+[2025-04-30T15:08:44.392+0000] {logging_mixin.py:190} INFO - sched len:  112
+[2025-04-30T15:08:44.395+0000] {logging_mixin.py:190} INFO - ti len:  112
+[2025-04-30T15:11:27.776+0000] {logging_mixin.py:190} INFO - for key:  Sunday
+[2025-04-30T15:11:28.173+0000] {logging_mixin.py:190} INFO - sched len:  101
+[2025-04-30T15:11:28.174+0000] {logging_mixin.py:190} INFO - ti len:  101
+[2025-04-30T15:13:45.281+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  701
+[2025-04-30T15:13:45.284+0000] {logging_mixin.py:190} INFO - for key:  Saturday (also Good Friday)
+[2025-04-30T15:13:45.609+0000] {logging_mixin.py:190} INFO - sched len:  526
+[2025-04-30T15:13:45.611+0000] {logging_mixin.py:190} INFO - ti len:  526
+[2025-04-30T15:13:46.332+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_dag.py", line 297, in load_data
+    cursor.execute(stmt)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1103, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 283, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 338, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 214, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): 01bc0991-0305-1b25-0007-3347000affbe: SQL compilation error: error line 1 at position 86
+invalid identifier 'NONE'
+[2025-04-30T15:13:46.341+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=TFL_DATA_DAG_V2, task_id=load_data, run_id=manual__2025-04-30T13:18:41.130562+00:00, execution_date=20250430T131841, start_date=20250430T144551, end_date=20250430T151346
+[2025-04-30T15:13:46.358+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-30T15:13:46.359+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 443 for task load_data (000904 (42000): 01bc0991-0305-1b25-0007-3347000affbe: SQL compilation error: error line 1 at position 86
+invalid identifier 'NONE'; 10484)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_dag.py", line 297, in load_data
+    cursor.execute(stmt)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1103, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 283, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 338, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 214, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): 01bc0991-0305-1b25-0007-3347000affbe: SQL compilation error: error line 1 at position 86
+invalid identifier 'NONE'
+[2025-04-30T15:13:46.400+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-30T15:13:46.419+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-30T15:13:46.422+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

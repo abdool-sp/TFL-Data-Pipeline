@@ -1,0 +1,219 @@
+[2025-04-30T18:53:23.537+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-30T18:53:23.550+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T17:22:54.081203+00:00 [queued]>
+[2025-04-30T18:53:23.557+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T17:22:54.081203+00:00 [queued]>
+[2025-04-30T18:53:23.558+0000] {taskinstance.py:2867} INFO - Starting attempt 7 of 12
+[2025-04-30T18:53:23.566+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_data> on 2025-04-30 17:22:54.081203+00:00
+[2025-04-30T18:53:23.572+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG_V2', 'load_data', 'manual__2025-04-30T17:22:54.081203+00:00', '--job-id', '475', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp81p10dj4']
+[2025-04-30T18:53:23.575+0000] {standard_task_runner.py:105} INFO - Job 475: Subtask load_data
+[2025-04-30T18:53:23.573+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=4108) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-30T18:53:23.577+0000] {standard_task_runner.py:72} INFO - Started process 4116 to run task
+[2025-04-30T18:53:23.633+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T17:22:54.081203+00:00 [running]> on host 605a3e254bf1
+[2025-04-30T18:53:23.678+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG_V2' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-30T17:22:54.081203+00:00' AIRFLOW_CTX_TRY_NUMBER='7' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-30T17:22:54.081203+00:00'
+[2025-04-30T18:53:23.680+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-30T18:53:23.694+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-30T18:53:23.695+0000] {connection.py:424} INFO - Snowflake Connector for Python Version: 3.13.2, Python Version: 3.12.9, Platform: Linux-6.10.0-linuxkit-x86_64-with-glibc2.36
+[2025-04-30T18:53:23.697+0000] {connection.py:1213} INFO - Connecting to GLOBAL Snowflake domain
+[2025-04-30T18:53:23.698+0000] {connection.py:1295} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-04-30T18:53:25.149+0000] {logging_mixin.py:190} INFO - snowflake conn:  <snowflake.connector.connection.SnowflakeConnection object at 0x7f286dbacce0>
+[2025-04-30T18:53:25.543+0000] {logging_mixin.py:190} INFO - tt_keys ['data/cleaned/timetables/snapshot_20250430_182328_35823.json', 'data/cleaned/timetables/snapshot_20250430_182430_91745.json', 'data/cleaned/timetables/snapshot_20250430_182532_97467.json', 'data/cleaned/timetables/snapshot_20250430_182637_16579.json', 'data/cleaned/timetables/snapshot_20250430_182707_67325.json', 'data/cleaned/timetables/snapshot_20250430_182809_86831.json', 'data/cleaned/timetables/snapshot_20250430_182916_04135.json', 'data/cleaned/timetables/snapshot_20250430_182946_50700.json']
+[2025-04-30T18:53:25.550+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-30T18:53:25.554+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-30T18:53:34.912+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  1
+[2025-04-30T18:53:34.913+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-30T18:53:35.358+0000] {logging_mixin.py:190} INFO - sched len:  115
+[2025-04-30T18:53:35.361+0000] {logging_mixin.py:190} INFO - ti len:  115
+[2025-04-30T18:55:42.723+0000] {logging_mixin.py:190} INFO - for key:  Monday to Thursday
+[2025-04-30T18:55:43.175+0000] {logging_mixin.py:190} INFO - sched len:  116
+[2025-04-30T18:55:43.176+0000] {logging_mixin.py:190} INFO - ti len:  116
+[2025-04-30T18:57:46.746+0000] {logging_mixin.py:190} INFO - for key:  Saturday
+[2025-04-30T18:57:47.195+0000] {logging_mixin.py:190} INFO - sched len:  111
+[2025-04-30T18:57:47.197+0000] {logging_mixin.py:190} INFO - ti len:  111
+[2025-04-30T18:59:53.042+0000] {logging_mixin.py:190} INFO - for key:  Sunday
+[2025-04-30T18:59:53.498+0000] {logging_mixin.py:190} INFO - sched len:  100
+[2025-04-30T18:59:53.499+0000] {logging_mixin.py:190} INFO - ti len:  100
+[2025-04-30T19:01:52.175+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  101
+[2025-04-30T19:01:52.179+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-30T19:01:52.966+0000] {logging_mixin.py:190} INFO - sched len:  113
+[2025-04-30T19:01:52.969+0000] {logging_mixin.py:190} INFO - ti len:  113
+[2025-04-30T19:03:57.659+0000] {logging_mixin.py:190} INFO - for key:  Monday to Thursday
+[2025-04-30T19:03:58.029+0000] {logging_mixin.py:190} INFO - sched len:  114
+[2025-04-30T19:03:58.030+0000] {logging_mixin.py:190} INFO - ti len:  114
+[2025-04-30T19:06:05.038+0000] {logging_mixin.py:190} INFO - for key:  Saturday
+[2025-04-30T19:06:05.387+0000] {logging_mixin.py:190} INFO - sched len:  112
+[2025-04-30T19:06:05.388+0000] {logging_mixin.py:190} INFO - ti len:  112
+[2025-04-30T19:08:11.586+0000] {logging_mixin.py:190} INFO - for key:  Sunday
+[2025-04-30T19:08:11.945+0000] {logging_mixin.py:190} INFO - sched len:  101
+[2025-04-30T19:08:11.949+0000] {logging_mixin.py:190} INFO - ti len:  101
+[2025-04-30T19:10:02.959+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  201
+[2025-04-30T19:10:02.961+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-30T19:10:03.302+0000] {logging_mixin.py:190} INFO - sched len:  113
+[2025-04-30T19:10:03.304+0000] {logging_mixin.py:190} INFO - ti len:  113
+[2025-04-30T19:12:11.806+0000] {logging_mixin.py:190} INFO - for key:  Monday to Thursday
+[2025-04-30T19:12:12.166+0000] {logging_mixin.py:190} INFO - sched len:  114
+[2025-04-30T19:12:12.170+0000] {logging_mixin.py:190} INFO - ti len:  114
+[2025-04-30T19:14:18.947+0000] {logging_mixin.py:190} INFO - for key:  Saturday
+[2025-04-30T19:14:19.375+0000] {logging_mixin.py:190} INFO - sched len:  112
+[2025-04-30T19:14:19.376+0000] {logging_mixin.py:190} INFO - ti len:  112
+[2025-04-30T19:16:26.245+0000] {logging_mixin.py:190} INFO - for key:  Sunday
+[2025-04-30T19:16:26.614+0000] {logging_mixin.py:190} INFO - sched len:  101
+[2025-04-30T19:16:26.615+0000] {logging_mixin.py:190} INFO - ti len:  101
+[2025-04-30T19:18:17.208+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  301
+[2025-04-30T19:18:17.210+0000] {logging_mixin.py:190} INFO - for key:  Saturday (also Good Friday)
+[2025-04-30T19:18:18.397+0000] {logging_mixin.py:190} INFO - sched len:  495
+[2025-04-30T19:18:18.398+0000] {logging_mixin.py:190} INFO - ti len:  495
+[2025-04-30T19:26:14.844+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286c6e98e0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&request_guid=7ea3f603-ae3e-44ee-b7c3-0ffad58fe1bc
+[2025-04-30T19:26:15.894+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286bc81c40>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&clientStartTime=1746041174446&retryCount=1&retryReason=None&request_guid=f50aba70-5e7c-481f-a7a0-198990a466df
+[2025-04-30T19:26:15.915+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286bc80a40>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&clientStartTime=1746041174446&retryCount=2&retryReason=None&request_guid=00ae4733-c8cc-4bde-ba2c-1aecd8c4bf3a
+[2025-04-30T19:26:18.942+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286bc81d30>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&clientStartTime=1746041174446&retryCount=3&retryReason=None&request_guid=7465aa8f-38c9-4cc4-9268-2b4f622d23ae
+[2025-05-01T04:46:20.776+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286bac7c50>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&clientStartTime=1746041174446&retryCount=4&retryReason=None&request_guid=1b4e9429-ee05-4cc0-8be7-4eae833eb4c6
+[2025-05-01T04:46:22.907+0000] {job.py:229} INFO - Heartbeat recovered after 33601.86 seconds
+[2025-05-01T11:46:00.772+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286bc818e0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&clientStartTime=1746041174446&retryCount=5&retryReason=None&request_guid=f6df6577-ae45-49b9-ae6f-de971a55220a
+[2025-05-01T11:46:04.828+0000] {job.py:229} INFO - Heartbeat recovered after 25176.88 seconds
+[2025-05-01T11:46:08.807+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286bc82e40>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&clientStartTime=1746041174446&retryCount=6&retryReason=None&request_guid=b9a0c6e7-73a1-458d-94ab-e558ea3ce09d
+[2025-05-01T11:46:24.826+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286bae5af0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&clientStartTime=1746041174446&retryCount=7&retryReason=None&request_guid=6dc7b5c6-c0f2-40b1-b85c-4f339644b21c
+[2025-05-01T11:46:29.841+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7f286bae4ec0>: Failed to establish a new connection: [Errno -2] Name or service not known')': /queries/v1/query-request?requestId=6e317336-8bfa-49da-9942-4b3731788c1e&clientStartTime=1746041174446&retryCount=8&retryReason=None&request_guid=0eae8647-3534-4499-b42a-b9e099366447
+[2025-05-01T11:46:34.558+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 770, in _post_request
+    ret = self._renew_session()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 537, in _renew_session
+    return self._token_request(REQUEST_TYPE_RENEW)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 592, in _token_request
+    raise ReauthenticationRequest(
+snowflake.connector.network.ReauthenticationRequest: 390114 (08001): None: Authentication token has expired.  The user must authenticate again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_dag.py", line 293, in load_data
+    ins = cursor.execute(stmt)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 994, in execute
+    ret = self._execute_helper(query, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 700, in _execute_helper
+    ret = self._connection.cmd_query(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1368, in cmd_query
+    ret = self.rest.request(
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 501, in request
+    return self._post_request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 773, in _post_request
+    raise ex.cause
+snowflake.connector.errors.ProgrammingError: 390114 (08001): None: Authentication token has expired.  The user must authenticate again.
+[2025-05-01T11:46:34.572+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=TFL_DATA_DAG_V2, task_id=load_data, run_id=manual__2025-04-30T17:22:54.081203+00:00, execution_date=20250430T172254, start_date=20250430T185323, end_date=20250501T114634
+[2025-05-01T11:46:34.601+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-05-01T11:46:34.602+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 475 for task load_data (390114 (08001): None: Authentication token has expired.  The user must authenticate again.; 4116)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 770, in _post_request
+    ret = self._renew_session()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 537, in _renew_session
+    return self._token_request(REQUEST_TYPE_RENEW)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 592, in _token_request
+    raise ReauthenticationRequest(
+snowflake.connector.network.ReauthenticationRequest: 390114 (08001): None: Authentication token has expired.  The user must authenticate again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_dag.py", line 293, in load_data
+    ins = cursor.execute(stmt)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 994, in execute
+    ret = self._execute_helper(query, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 700, in _execute_helper
+    ret = self._connection.cmd_query(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1368, in cmd_query
+    ret = self.rest.request(
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 501, in request
+    return self._post_request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 773, in _post_request
+    raise ex.cause
+snowflake.connector.errors.ProgrammingError: 390114 (08001): None: Authentication token has expired.  The user must authenticate again.
+[2025-05-01T11:46:34.623+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-01T11:46:34.641+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-01T11:46:34.646+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

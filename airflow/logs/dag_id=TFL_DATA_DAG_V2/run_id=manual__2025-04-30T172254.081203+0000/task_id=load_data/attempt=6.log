@@ -1,0 +1,305 @@
+[2025-04-30T18:51:45.051+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-30T18:51:45.089+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T17:22:54.081203+00:00 [queued]>
+[2025-04-30T18:51:45.109+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T17:22:54.081203+00:00 [queued]>
+[2025-04-30T18:51:45.111+0000] {taskinstance.py:2867} INFO - Starting attempt 6 of 11
+[2025-04-30T18:51:45.143+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_data> on 2025-04-30 17:22:54.081203+00:00
+[2025-04-30T18:51:45.158+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=4030) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-30T18:51:45.155+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'TFL_DATA_DAG_V2', 'load_data', 'manual__2025-04-30T17:22:54.081203+00:00', '--job-id', '474', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp635iul4_']
+[2025-04-30T18:51:45.160+0000] {standard_task_runner.py:72} INFO - Started process 4033 to run task
+[2025-04-30T18:51:45.161+0000] {standard_task_runner.py:105} INFO - Job 474: Subtask load_data
+[2025-04-30T18:51:45.258+0000] {task_command.py:467} INFO - Running <TaskInstance: TFL_DATA_DAG_V2.load_data manual__2025-04-30T17:22:54.081203+00:00 [running]> on host 605a3e254bf1
+[2025-04-30T18:51:45.372+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='abdulsalam' AIRFLOW_CTX_DAG_ID='TFL_DATA_DAG_V2' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-30T17:22:54.081203+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-30T17:22:54.081203+00:00'
+[2025-04-30T18:51:45.376+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-30T18:51:45.457+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-30T18:51:45.463+0000] {connection.py:424} INFO - Snowflake Connector for Python Version: 3.13.2, Python Version: 3.12.9, Platform: Linux-6.10.0-linuxkit-x86_64-with-glibc2.36
+[2025-04-30T18:51:45.469+0000] {connection.py:1213} INFO - Connecting to GLOBAL Snowflake domain
+[2025-04-30T18:51:45.471+0000] {connection.py:1295} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-04-30T18:51:47.495+0000] {logging_mixin.py:190} INFO - snowflake conn:  <snowflake.connector.connection.SnowflakeConnection object at 0x7f28791216a0>
+[2025-04-30T18:51:47.933+0000] {logging_mixin.py:190} INFO - tt_keys ['data/cleaned/timetables/snapshot_20250430_182328_35823.json', 'data/cleaned/timetables/snapshot_20250430_182430_91745.json', 'data/cleaned/timetables/snapshot_20250430_182532_97467.json', 'data/cleaned/timetables/snapshot_20250430_182637_16579.json', 'data/cleaned/timetables/snapshot_20250430_182707_67325.json', 'data/cleaned/timetables/snapshot_20250430_182809_86831.json', 'data/cleaned/timetables/snapshot_20250430_182916_04135.json', 'data/cleaned/timetables/snapshot_20250430_182946_50700.json']
+[2025-04-30T18:51:47.945+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2025-04-30T18:51:47.947+0000] {connection_wrapper.py:328} INFO - AWS Connection (conn_id='minio_conn', conn_type='aws') credentials retrieved from extra.
+[2025-04-30T18:52:03.090+0000] {logging_mixin.py:190} INFO - Inserting into timetables with id:  602
+[2025-04-30T18:52:03.093+0000] {logging_mixin.py:190} INFO - for key:  Friday
+[2025-04-30T18:52:04.429+0000] {logging_mixin.py:190} INFO - sched len:  115
+[2025-04-30T18:52:04.431+0000] {logging_mixin.py:190} INFO - ti len:  115
+[2025-04-30T18:52:04.878+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:04.882+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:05.874+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:05.876+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:07.591+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:07.594+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:08.687+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:08.690+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:09.777+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:09.778+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:10.934+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:10.935+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:11.920+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:11.921+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:12.930+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:12.933+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:14.613+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:14.614+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:15.762+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:15.763+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:16.727+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:16.729+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:17.658+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:17.659+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:18.769+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:18.772+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:19.715+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:19.716+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:20.701+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:20.703+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:21.680+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:21.683+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:22.743+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:22.745+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:23.701+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:23.703+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:24.834+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:24.836+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:26.949+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:26.950+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:27.929+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:27.930+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:29.288+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:29.289+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:30.392+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:30.394+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:31.664+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:31.666+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:32.711+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:32.712+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:33.785+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:33.786+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:34.891+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:34.898+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:35.859+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:35.861+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:37.064+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:37.065+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:38.232+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:38.233+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:39.403+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:39.404+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:40.642+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:40.645+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:41.698+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:41.699+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:42.688+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:42.689+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:43.654+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:43.655+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:44.617+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:44.618+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:45.634+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:45.636+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:46.679+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:46.680+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:47.716+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:47.721+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:48.686+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:48.687+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:49.695+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:49.697+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:50.775+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:50.785+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:52.354+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:52.355+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:53.616+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:53.617+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:54.573+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:54.595+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:55.660+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:55.663+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:56.596+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:56.601+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:57.683+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:57.686+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:58.777+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:58.779+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:52:59.795+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:52:59.800+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:53:00.820+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:53:00.823+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:53:02.277+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:53:02.281+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:53:03.226+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:53:03.229+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:53:04.221+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:53:04.222+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:53:05.246+0000] {logging_mixin.py:190} INFO - rows:  [(1,)]
+[2025-04-30T18:53:05.247+0000] {logging_mixin.py:190} INFO - t:  1
+[2025-04-30T18:53:05.726+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-04-30T18:53:05.730+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-30T18:53:05.740+0000] {process_utils.py:132} INFO - Sending 15 to group 4033. PIDs of all processes in the group: [4033]
+[2025-04-30T18:53:05.741+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 4033
+[2025-04-30T18:53:05.746+0000] {taskinstance.py:3094} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-04-30T18:53:05.762+0000] {taskinstance.py:3095} ERROR - Stacktrace: 
+  File "/home/***/.local/bin/***", line 8, in <module>
+    sys.exit(main())
+  File "/home/***/.local/lib/python3.12/site-packages/***/__main__.py", line 62, in main
+    args.func(args)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/providers_configuration_loader.py", line 55, in wrapped_function
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/scheduler_command.py", line 56, in scheduler
+    run_command_with_daemon_option(
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/daemon_utils.py", line 86, in run_command_with_daemon_option
+    callback()
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/scheduler_command.py", line 59, in <lambda>
+    callback=lambda: _run_scheduler_job(args),
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/scheduler_command.py", line 47, in _run_scheduler_job
+    run_job(job=job_runner.job, execute_callable=job_runner._execute)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 421, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 450, in execute_job
+    ret = execute_callable()
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/scheduler_job_runner.py", line 990, in _execute
+    executor.start()
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 392, in start
+    self.impl.start()
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 330, in start
+    worker.start()
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282, in _Popen
+    return Popen(process_obj)
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71, in _launch
+    code = process_obj._bootstrap(parent_sentinel=child_r)
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 80, in run
+    return super().run()
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/traces/tracer.py", line 58, in wrapper
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 211, in do_work
+    self.execute_work(key=key, command=command)
+  File "/home/***/.local/lib/python3.12/site-packages/***/traces/tracer.py", line 58, in wrapper
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 100, in execute_work
+    state = self._execute_work_in_fork(command)
+  File "/home/***/.local/lib/python3.12/site-packages/***/traces/tracer.py", line 58, in wrapper
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/executors/local_executor.py", line 142, in _execute_work_in_fork
+    args.func(args)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 254, in _run_task_by_selected_method
+    return _run_task_by_local_task_job(args, ti)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 322, in _run_task_by_local_task_job
+    ret = run_job(job=job_runner.job, execute_callable=job_runner._execute)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 421, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/job.py", line 450, in execute_job
+    ret = execute_callable()
+  File "/home/***/.local/lib/python3.12/site-packages/***/jobs/local_task_job_runner.py", line 171, in _execute
+    self.task_runner.start()
+  File "/home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py", line 55, in start
+    self.process = self._start_by_fork()
+  File "/home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/***/.local/lib/python3.12/site-packages/***/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/home/***/.local/lib/python3.12/site-packages/***/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/***/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/opt/***/dags/my_dag.py", line 306, in load_data
+    #     for time in schedules[key][stop]:
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 994, in execute
+    ret = self._execute_helper(query, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 700, in _execute_helper
+    ret = self._connection.cmd_query(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/connection.py", line 1368, in cmd_query
+    ret = self.rest.request(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 501, in request
+    return self._post_request(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 749, in _post_request
+    ret = self.fetch(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 864, in fetch
+    ret = self._request_exec_wrapper(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 914, in _request_exec_wrapper
+    return_object = self._request_exec(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/network.py", line 1081, in _request_exec
+    raw_ret = session.request(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py", line 462, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py", line 330, in recv_into
+    if not util.wait_for_read(self.socket, self.socket.gettimeout()):
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/wait.py", line 145, in wait_for_read
+    return wait_for_socket(sock, read=True, timeout=timeout)
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/wait.py", line 106, in poll_wait_for_socket
+    return bool(_retry_on_intr(do_poll, timeout))
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/wait.py", line 43, in _retry_on_intr
+    return fn(timeout)
+  File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/vendored/urllib3/util/wait.py", line 104, in do_poll
+    return poll_obj.poll(t)
+  File "/home/***/.local/lib/python3.12/site-packages/***/models/taskinstance.py", line 3095, in signal_handler
+    self.log.error("Stacktrace: \n%s", "".join(traceback.format_stack()))
+
+[2025-04-30T18:53:05.789+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-30T18:53:05.802+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=4033, status='terminated', exitcode=0, started='18:51:45') (4033) terminated with exit code 0

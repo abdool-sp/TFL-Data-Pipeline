@@ -5,6 +5,10 @@ snowflake/trial.ipynb
 notes.txt
 airflow/dags/dag_with_python_operator.py
 airflow/dags/snowflake_hook.py
+airflow/logs/
+airflow/airflow-scheduler-*.log
 airflow/plugins/lines.json
 arrival.json
 line_stop.json
+ambiguity.json
+snowflake/amb.json

@@ -42,13 +42,15 @@ def get_timetable(line_id, stop_point):
         r.raise_for_status()
         data = r.json()
         if "disambiguation" in data.keys():
-            data = []
-            for option in data["disambiguationOptions"]:
+            data_ = []
+            print("Disambiguation found v2")
+            for option in data["disambiguation"]["disambiguationOptions"]:
                 uri = BASE_URL+ "/" + option["uri"]
                 r = requests.get(uri)
                 r.raise_for_status()
-                data.append(r.json())
-            return data
+                data_.append(r.json())
+            print("Disambiguation data: ", data_)
+            return data_
         return [data]
     except (Exception, HeaderParsingError) as e:
         #add loggings here
